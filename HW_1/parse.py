@@ -2,20 +2,11 @@ def parse(query: str) -> dict:
     if not isinstance(query, str):
         raise TypeError\
             ('parse() argument must be a string')
-    query_position = query.find('?')
-    if query_position == -1:
-        print('URL has no query parameters')
-        return {}
-    query_list = query[query_position+1:].split('&')
-    query_dict = {}
-    for i in query_list:
-        if i.count('name') == 1:
-            query_dict.update({"name": i.lstrip('name=')})
-        elif i.count('color') == 1:
-            query_dict.update({"color": i.lstrip('color=')})
-    if len(query_dict) == 0:
-        print('The requested query parameters were not found')
-    return query_dict
+    query = query.split('?', 1)
+    if len(query) > 1:
+        query_dict = {x.split('=', 1)[0]: x.split('=', 1)[1] for x in query[1].split('&') if '=' in x}
+        return query_dict
+    return {}
 
 
 if __name__ == '__main__':

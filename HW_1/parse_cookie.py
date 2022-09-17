@@ -1,17 +1,12 @@
 def parse_cookie(query: str) -> dict:
     if not isinstance(query, str):
         raise TypeError\
-            ('parse() argument must be a string')
+            ('parse_cookie() argument must be a string')
     query_list = query.split(';')
-    query_dict = {}
-    for i in query_list:
-        if i.count('name') == 1:
-            query_dict.update({"name": i.lstrip('name=')})
-        elif i.count('age') == 1:
-            query_dict.update({"age": i.lstrip('age=')})
-    if len(query_dict) == 0:
-        print('The requested query parameters were not found')
-    return query_dict
+    if len(query_list) > 0:
+        query_dict = {x.split('=', 1)[0]: x.split('=', 1)[1] for x in query_list if '=' in x}
+        return query_dict
+    return {}
 
 
 if __name__ == '__main__':
