@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users</title>
+</head>
+<body>
+    <h1>Генерація випадкових користувачів</h1>
+    <p>За замовчанням генеруэться 100 випадкових користувачів. Якщо ви бажаєте отримати іншу кількість користувачів, введіть необхідне число.</p>
+    <form method="post">
+        <input type="number" name="users_amount">
+        <button type="submit">Ввести бажану кількість</button>
+    </form>
+    {% for user in users %}
+        <p>{{user}}</p>
+    {% endfor %}
+    <div><a href=" /">Повернутись на головну сторінку</a></div>
+</body>
+</html>
