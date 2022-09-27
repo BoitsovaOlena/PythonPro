@@ -1,0 +1,152 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+*:focus,
+*:active,
+*:hover {
+  outline: none; }
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  background-color: #f4f4f4; }
+
+ul {
+  list-style-type: none; }
+
+body,
+ul,
+form,
+h1,
+h2,
+h3,
+p,
+a,
+button,
+label,
+input {
+  margin: 0;
+  padding: 0; }
+
+a,
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  -webkit-transition: color 0.5s linear;
+  -o-transition: color 0.5s linear;
+  transition: color 0.5s linear;
+} 
+button{
+  border-color: #777ed5;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  padding: 1px 7px 2px;
+  background-color: white;
+  text-rendering: auto;
+  color: initial;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+  font: 400 11px system-ui;
+}
+button:hover{
+  border-color: #5c609e;
+}
+a {
+  font-size: 16px;
+  font-weight: 700;
+  color: #777ed5;
+  text-decoration: none; }
+
+a:hover {
+  color: #5c609e; }
+
+h1 {
+  text-align: center;
+  margin: 30px 0;
+}
+main {
+  margin: 0 10px;
+}
+
+.header {
+  font-weight: 700;
+  background-color: #777ed5;
+}
+.table {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.table li, .li_item{
+  padding: 5px;
+  text-align: center;
+  width: 25%;
+}
+.table li:not(:last-child){
+  border-right: 1px black solid;
+}
+.btn_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.add_form {
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 2px solid #777ed5;
+  border-radius: 5px;
+}
+.add_form .item{
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.save-btn {
+  border-color: rgb(3, 160, 3);
+  color: rgb(3, 160, 3);
+  width: fit-content;
+  font-weight: 700;
+}
+.save-btn:hover{
+  border-color: rgb(4, 202, 4);
+  color: rgb(4, 202, 4);
+}
+.del_form {
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.del_form .item{
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.del-btn {
+  border-color: red;
+  color: red;
+  width: fit-content;
+  font-weight: 700;
+}
+.del-btn:hover{
+  border-color: darkred;
+  color: darkred;
+}
