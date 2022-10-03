@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs list</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <h1>Список доступних треків</h1>
+    <main>
+        <div class="btn_div">
+            <button><a href="/add_song">Додати новий трек</a></button>
+            <button><a href="/del_song">Видалити трек</a></button>
+        </div>
+            <ul class="header table">
+                <li>Назва треку</li>
+                <li>Рік виходу</li>
+                <li>Автор тексту</li>
+                <li>Тривалість треку</li>
+            </ul>
+            <ul>
+                {% for song in songs %}
+                    <li class="table">
+                        <div class="li_item">{{song.name}}</div>
+                        <div class="li_item">{{song.year}}</div>
+                        <div class="li_item">{{song.author.first_name}} {{song.author.last_name}}</div>
+                        <div class="li_item">{{song.duration}}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+    </main>
+</body>
+</html>
