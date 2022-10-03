@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from models import Song, Author
+import re
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ def add_song():
     context = {'authors': Author.select()}
     if request.method == 'POST':
         duration = request.form['duration'].strip()
-        if len(duration) != 5:
+        if not re.match(r'\d{2}:\d{2}', duration):
             context = {'message': "Час вказано невірно(формат XX:CC, наприклад 05:33)"}
             return render_template('message.html', **context)
         if request.form['author'] == 'Автор тексту':
