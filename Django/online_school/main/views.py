@@ -8,10 +8,7 @@ class IndexView(TemplateView):
 
     @staticmethod
     def queryset_to_str(queryset):
-        my_str = ''
-        for item in queryset:
-            my_str = my_str + '\n' + str(item)
-        return my_str
+        return ', '.join([str(item) for item in queryset])
 
     def get_context_data(self, **kwargs):
         students = Student.objects.all()
@@ -33,31 +30,4 @@ class IndexView(TemplateView):
         students_by_email = Student.objects.filter(email__contains='gmail.com')
         print('\033[0;34mВсі студенти  у яких email на домені gmail.com:\033[0m',
               self.queryset_to_str(students_by_email))
-        # SELECT
-        # vendor = Vendor.objects.get(name='Acer')
-        # products = Product.objects.filter(
-        #     vendor=vendor
-        # )
-        #
-        # products = Product.objects.filter(
-        #     vendor__name__contains="Acer", price__lt=1000
-        # )
-
-        # INSERT
-        # Tag(name="Some tag").save()
-        # Tag.objects.create(name="Tag some")
-
-        # UPDATE
-        # product = Product.objects.get(id=1)
-        # product.price = 800
-        # product.save()
-        #
-        # Product.objects.filter(id=1).update(quantity=5)
-
-        # DELETE
-        # Tag.objects.filter(id=3).delete()
-
-        # print(products)
-
         return {}
-
