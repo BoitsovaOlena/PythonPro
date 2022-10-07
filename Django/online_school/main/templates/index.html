@@ -47,6 +47,11 @@
                 <img src="{{ course.image.url }}" style="height: 120px; object-fit: contain; " class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{course.name}}</h5>
+                  <h6 class="card-title">Викладачі:</h6>
+                  {% for item in course.teacher.all %}
+                   <p class="card-text m-0" >{{item.name}}</p>
+                     
+                  {% endfor %}
                   <p class="card-text" style="height: 250px; overflow: hidden;">{{course.description}}</p>
                   <a href="/course/{{  course.id }}" class="btn btn-primary">Дізнатися більшe</a>
                 </div>

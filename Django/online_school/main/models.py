@@ -22,19 +22,6 @@ class CourseManager(models.Manager):
         queryset = super(CourseManager, self).get_queryset()
         print(queryset)
         return queryset.exclude(teacher=None)
-    #
-    # def __get_prefetched(self):
-    #     return self.get_queryset().select_related(
-    #         'vendor'
-    #     ).prefetch_related(
-    #         'tags'
-    #     )
-    #
-    # def get_cheap_products(self):
-    #     return self.__get_prefetched().filter(price__lte=500)
-    #
-    # def get_by_vendor_id(self, vendor_id):
-    #     return self.__get_prefetched().filter(vendor=vendor_id)
 
 
 class NameIt(models.Model):

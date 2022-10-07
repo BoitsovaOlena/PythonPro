@@ -35,11 +35,19 @@
       <main class="m-4">
         <h1 class="m-3 text-center">{{course.name}}</h1>
         <h2>Категорія: {{course.category}}</h2>
-        <h2>Викладачі: {{course.course_teacher}}</h2>
+        <h2>Викладачі: </h2>
+        {% for item in course.teacher.all %}
+        <span>{{ item.name }}</span>
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+
         <h2>Опис курсу</h2>
         <p>{{course.description}}</p>
         <h2>Основні моменти, щи викладають на курсі</h2>
-        <p>{{course.course_theses}}</p>
+        {% for item in course.course_theses.all %}
+        <span>{{ item.name }}</span>
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
         
             
 
