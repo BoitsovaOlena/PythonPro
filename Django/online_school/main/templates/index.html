@@ -23,7 +23,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     {% for category in categories %}
-                        <a class="dropdown-item" href="#">{{ category.name }}</a>
+                        <a class="dropdown-item" href="/category/{{  category.id }}">{{ category.name }}</a>
                     {% endfor %}
 
                 </ul>
@@ -32,54 +32,48 @@
           </div>
         </div>
       </nav>
-      <main>
-        <h1>Доступні курси</h1>
-        <div class="row g-2">
+      <main class="m-4">
+        {% if category_choice %}
+        <h1 class="m-3 text-center">{{category_choice}}</h1>
+
+        {%else %}
+          <h1 class="m-3 text-center">Доступні курси</h1>
+
+        {% endif %}
+        <div class="row g-2 text-center">
+          {% for course in course_list %}
             <div class="col-sm-6 col-md-3">
               <div class="card">
+                <img src="{{ course.image.url }}" style="height: 120px; object-fit: contain; " class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title">{{course.name}}</h5>
+                  <p class="card-text" style="height: 250px; overflow: hidden;">{{course.description}}</p>
+                  <a href="/course/{{  course.id }}" class="btn btn-primary">Дізнатися більшe</a>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-3">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            {% endfor %}
+            <div>
+              <div class="pagination d-flex justify-content-center fs-3">
+                  <span class="step-links">
+                      {% if page_obj.has_previous %}
+                          <a href="?page=1">&laquo; first</a>
+                          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                      {% endif %}
+
+                      <span class="current">
+                          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                      </span>
+
+                      {% if page_obj.has_next %}
+                          <a href="?page={{ page_obj.next_page_number }}">next</a>
+                          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                      {% endif %}
+                  </span>
               </div>
             </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
+
+
 
           </div>
             

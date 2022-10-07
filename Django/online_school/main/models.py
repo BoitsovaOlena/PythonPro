@@ -16,6 +16,27 @@ def course_upload_path(obj, file):
     return f'course/{obj.id}/{file}'
 
 
+class CourseManager(models.Manager):
+
+    def get_queryset(self):
+        queryset = super(CourseManager, self).get_queryset()
+        print(queryset)
+        return queryset.exclude(teacher=None)
+    #
+    # def __get_prefetched(self):
+    #     return self.get_queryset().select_related(
+    #         'vendor'
+    #     ).prefetch_related(
+    #         'tags'
+    #     )
+    #
+    # def get_cheap_products(self):
+    #     return self.__get_prefetched().filter(price__lte=500)
+    #
+    # def get_by_vendor_id(self, vendor_id):
+    #     return self.__get_prefetched().filter(vendor=vendor_id)
+
+
 class NameIt(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
@@ -60,3 +81,5 @@ class Course(NameIt):
     course_theses = models.ManyToManyField("main.CourseTheses")
     teacher = models.ManyToManyField("main.Teacher", blank=True)
     category = models.ForeignKey("main.CourseCategory", on_delete=models.SET_NULL, null=True)
+
+    objects = CourseManager()
