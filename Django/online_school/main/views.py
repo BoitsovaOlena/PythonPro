@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, TemplateView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, TemplateView
+from main.forms import StudentCreateForm, CourseCreateForm
 from main.models import CourseCategory, Course
 from django.http import Http404
 
@@ -35,6 +36,7 @@ class IndexView(ListView):
     #     print('\033[0;34mВсі студенти  у яких email на домені gmail.com:\033[0m',
     #           self.queryset_to_str(students_by_email))
     #     return {}
+
     def get_queryset(self):
         queryset = super(IndexView, self).get_queryset()
         return queryset.prefetch_related(
@@ -51,6 +53,7 @@ class CategoryView(ListView):
     template_name = 'index.html'
     model = Course
     paginate_by = 4
+
 
     def get(self, request, id):
         self.object_list = super(CategoryView, self).get_queryset().prefetch_related('teacher').filter(category=id)
@@ -76,4 +79,47 @@ class CourseView(TemplateView):
                 'course': Course.objects.filter(id=context['id'])[0]
             })
         return context
+
+
+class AddStudentView(TemplateView):
+    template_name = 'add_student.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AddStudentView, self).get_context_data(**kwargs)
+        context['categories'] = CourseCategory.objects.all()
+        context['form'] = StudentCreateForm()
+        return context
+
+    def post(self, request):
+        form = StudentCreateForm(data=request.POST)
+        if form.is_valid():
+            form.add_student()
+            return redirect('/')
+        context = self.get_context_data()
+        context['form'] = form
+        return self.render_to_response(context)
+
+
+class AddCourseView(TemplateView):
+    template_name = 'add_course.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AddCourseView, self).get_context_data(**kwargs)
+        context['categories'] = CourseCategory.objects.all()
+        context['form'] = CourseCreateForm()
+        return context
+
+    def post(self, request):
+        form = CourseCreateForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            form.add_course()
+            return redirect('/')
+        context = self.get_context_data()
+        context['form'] = form
+        return self.render_to_response(context)
+
+
+
+
+
 
