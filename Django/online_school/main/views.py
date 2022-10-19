@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, TemplateView
 from main.models import CourseCategory, Course
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 
 
 class IndexView(ListView):
@@ -47,7 +48,7 @@ class CourseView(TemplateView):
         context = super(CourseView, self).get_context_data(*args, **kwargs)
         context.update({
                 'categories': CourseCategory.objects.all(),
-                'course': Course.objects.filter(id=context['id'])[0]
+                'course': get_object_or_404(Course, id=context['id'])
             })
         return context
 
