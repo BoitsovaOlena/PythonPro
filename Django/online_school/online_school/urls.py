@@ -24,5 +24,7 @@ urlpatterns = [
     path("", views.IndexView.as_view()),
     path("category/<int:id>/", views.CategoryView.as_view()),
     path("course/<int:id>/", views.CourseView.as_view()),
+    path("add_student/", views.AddStudentView.as_view()),
+    path("add_course/", views.AddCourseView.as_view()),
     path('__debug__/', include('debug_toolbar.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
