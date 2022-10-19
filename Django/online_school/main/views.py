@@ -51,5 +51,3 @@ class CourseView(TemplateView):
                 'course': get_object_or_404(Course, id=context['id'])
             })
         return context
-
-
