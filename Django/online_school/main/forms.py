@@ -4,22 +4,6 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 
-def unique_course_name(value):
-    course = Course.objects.filter(name__iexact=value)
-    if len(course) > 0:
-        raise ValidationError(
-            _('Курс з такою назвою вже існує.'),
-        )
-
-
-def unique_student_name(value):
-    course = Student.objects.filter(name__contains=value)
-    if len(course) > 0:
-        raise ValidationError(
-            _('Студент з таким прізвищем вже існує.'),
-        )
-
-
 def no_spase_name(obj, name):
     name = obj.cleaned_data[name].strip()
     spaces = name.find(' ')
@@ -30,7 +14,7 @@ def no_spase_name(obj, name):
 
 class StudentCreateForm(forms.Form):
     first_name = forms.CharField()
-    last_name = forms.CharField(validators=[unique_student_name], error_messages={'unique_student_name': 'Please enter your name'})
+    last_name = forms.CharField()
     age = forms.IntegerField(validators=[validate_age])
     email = forms.EmailField()
     group = forms.ModelChoiceField(
@@ -44,6 +28,11 @@ class StudentCreateForm(forms.Form):
 
     def clean_last_name(self):
         name = no_spase_name(self, 'last_name')
+        student = Student.objects.filter(name__contains=name)
+        if len(student) > 0:
+            raise ValidationError(
+                _('Студент з таким прізвищем вже існує.'),
+            )
         return name
 
     def add_student(self):
@@ -58,7 +47,7 @@ class StudentCreateForm(forms.Form):
 
 
 class CourseCreateForm(forms.Form):
-    name = forms.CharField(validators=[unique_course_name])
+    name = forms.CharField()
     description = forms.CharField(
         widget=forms.widgets.Textarea(attrs={'rows': '5', 'cols': '50', 'style': 'resize: none;'})
     )
@@ -75,6 +64,14 @@ class CourseCreateForm(forms.Form):
         queryset=CourseCategory.objects.all(),
         widget=forms.widgets.Select(attrs={'style': 'min-width:190px'})
     )
+
+    def clean_name(self):
+        course = Course.objects.filter(name__iexact=self.cleaned_data['name'])
+        if len(course) > 0:
+            raise ValidationError(
+                _('Курс з такою назвою вже існує.'),
+            )
+        return self.cleaned_data['name']
 
     def add_course(self):
         course = Course.objects.create(
