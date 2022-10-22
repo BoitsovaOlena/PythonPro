@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block main_content %}
   <h1 class="m-3 text-center">Введіть ваш логін та пароль</h1>
-  <form action="." method="post">{% csrf_token %}
-    <div class="row g-2 mb-3">
+  <form action="." method="post" style="width: 300px;">{% csrf_token %}
+    {% bootstrap_form form %}
+    <!-- <div class="row g-2 mb-3">
       <span class="col-md-12" >
         <label for="id_username" style="min-width: 70px;">Логін:</label>
         {{form.username}}
@@ -15,8 +17,8 @@
         {{form.errors.password}}
       </span>
 
-    </div>
-    <div class="mb-3">
+    </div> -->
+    <div class="mb-3 mt-3">
       <button type="submit" class="btn btn-success">
         Зайти
       </button>
