@@ -55,21 +55,27 @@
     </div>
   </nav>
   <main class="m-4">
-    <h1 class="m-3 text-center">{{course.name}}</h1>
-    <h2>Категорія: {{course.category}}</h2>
-    <h2>Викладачі: </h2>
-    {% for item in course.teacher.all %}
-    <span>{{ item.name }}</span>
-    {% if not forloop.last %}, {% endif %}
-{% endfor %}
+    <h1 class="m-3 text-center">Введіть ваш логін та пароль</h1>
+    <form action="." method="post">{% csrf_token %}
+      <div class="row g-2 mb-3">
+        <span class="col-md-12" >
+          <label for="id_username" style="min-width: 70px;">Логін:</label>
+          {{form.username}}
+          {{form.errors.username}}
+        </span>
+        <span class="col-md-12" >
+          <label for="id_password" style="min-width: 70px;">Пароль:</label>
+          {{form.password}}
+          {{form.errors.password}}
+        </span>
 
-    <h2>Опис курсу</h2>
-    <p>{{course.description}}</p>
-    <h2>Основні моменти, щи викладають на курсі</h2>
-    {% for item in course.course_theses.all %}
-    <span>{{ item.name }}</span>
-    {% if not forloop.last %}, {% endif %}
-{% endfor %}
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-success">
+          Зайти
+        </button>
+      </div>
+    </form>
     
         
 
