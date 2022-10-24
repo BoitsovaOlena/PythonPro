@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load costom_tags %}
 
 {% block main_content %}
   <h1 class="m-3 text-center">Мій кабінет</h1>
@@ -6,4 +7,9 @@
   <h4><strong>Прізвищє:</strong> {{user.last_name}}</h4>
   <h4><strong>Логін:</strong> {{user.username}}</h4>
   <h4><strong>Імейл:</strong> {{user.email}}</h4>
+  <h4>5 найбільш популярних курсів</h4>
+  <div class="row g-2 text-center">
+    {% popular_courses %}
+    <div>
+  
 {% endblock main_content %}

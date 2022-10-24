@@ -9,42 +9,9 @@
 
   {% endif %}
   <div class="row g-2 text-center">
-    {% for course in course_list %}
-      <div class="col-sm-6 col-md-3">
-        <div class="card">
-          <img src="{{ course.image.url }}" style="height: 120px; object-fit: contain; " class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{course.name}}</h5>
-            <h6 class="card-title">Викладачі:</h6>
-            {% for item in course.teacher.all %}
-              <p class="card-text m-0" >{{item.name}}</p>
-                
-            {% endfor %}
-            <p class="card-text" style="height: 250px; overflow: hidden;">{{course.description}}</p>
-            <a href="{% url 'course:card' course_id=course.id %}" class="btn btn-primary">Дізнатися більшe</a>
-            <a href="{% url 'course:edit' course_id=course.id %}" class="btn btn-success">Редагувати</a>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
+    {% include 'includes/course_card.html' %}
     <div>
-      <div class="pagination d-flex justify-content-center fs-3">
-          <span class="step-links">
-              {% if page_obj.has_previous %}
-                  <a href="?page=1">&laquo; first</a>
-                  <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-              {% endif %}
-
-              <span class="current">
-                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-              </span>
-
-              {% if page_obj.has_next %}
-                  <a href="?page={{ page_obj.next_page_number }}">next</a>
-                  <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-              {% endif %}
-          </span>
-      </div>
+      {% include 'includes/pagination.html' %}
     </div>
   </div>
 

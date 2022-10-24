@@ -1,11 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.postgres.aggregates import ArrayAgg
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, FormView, CreateView, UpdateView
 from main.forms import CourseCreateForm, StudentCreateForm, StudentEditForm
-from main.models import CourseCategory, Course, Student, Course
+from main.models import CourseCategory, Course, Student, Group
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.db.models import Count, F
 
 
 class IndexView(ListView):

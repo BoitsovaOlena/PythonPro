@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load costom_tags %}
 
 {% block main_content %}
   <h1 class="m-3 text-center">Додати студента</h1>
@@ -37,4 +38,5 @@
       </button>
     </div>
   </form>
+  {% popular_courses %}
 {% endblock main_content %}

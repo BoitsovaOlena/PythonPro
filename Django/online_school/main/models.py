@@ -45,6 +45,7 @@ class Teacher(Person):
 
 
 class Group(NameIt):
+    course = models.ForeignKey("main.Course", on_delete=models.SET_NULL, null=True)
     pass
 
 
