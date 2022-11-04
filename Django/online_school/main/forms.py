@@ -51,3 +51,7 @@ class StudentCreateForm(forms.ModelForm):
         student.save()
         self.save_m2m()  # only for models with M2M relation
         return student
+
+
+class StudentEditForm(StudentCreateForm):
+    last_name = forms.CharField(validators=[no_spase_name])

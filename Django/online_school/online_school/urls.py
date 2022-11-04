@@ -18,13 +18,16 @@ from django.urls import include, path
 from main import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.IndexView.as_view()),
-    path("category/<int:id>/", views.CategoryView.as_view()),
-    path("course/<int:id>/", views.CourseView.as_view()),
-    path("add_student/", views.AddStudentView.as_view()),
-    path("add_course/", views.AddCourseView.as_view()),
+    path("", views.IndexView.as_view(), name='home'),
+    path("category/<int:id>/", views.CategoryView.as_view(), name='category'),
+    path("course/", include(("main.urls_course", 'main'), namespace='course')),
+    path("student/", include(("main.urls_student", 'main'), namespace='student')),
+    path("login/", LoginView.as_view(template_name='login.html'), name='login'),
+    path("logout/", LogoutView.as_view(), name='logout'),
+    path("profile/", views.ProfileView.as_view(), name='profile'),
     path('__debug__/', include('debug_toolbar.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

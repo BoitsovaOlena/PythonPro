@@ -17,10 +17,8 @@ def course_upload_path(obj, file):
 
 
 class CourseManager(models.Manager):
-
     def get_queryset(self):
         queryset = super(CourseManager, self).get_queryset()
-        print(queryset)
         return queryset.exclude(teacher=None)
 
 

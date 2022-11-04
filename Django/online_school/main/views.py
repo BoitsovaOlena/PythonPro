@@ -1,7 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, TemplateView, FormView, CreateView
-from main.forms import CourseCreateForm, StudentCreateForm
-from main.models import CourseCategory, Course
+from django.urls import reverse_lazy
+from django.views.generic import ListView, TemplateView, FormView, CreateView, UpdateView
+from main.forms import CourseCreateForm, StudentCreateForm, StudentEditForm
+from main.models import CourseCategory, Course, Student, Course
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
@@ -46,15 +48,25 @@ class CourseView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super(CourseView, self).get_context_data(*args, **kwargs)
         context.update({
-                'course': get_object_or_404(Course, id=context['id'])
+                'course': get_object_or_404(Course, id=context['course_id'])
             })
         return context
+
+
+class StudentsView(ListView):
+    template_name = 'students.html'
+    model = Student
+    paginate_by = 8
+
+    def get_queryset(self):
+        queryset = super(StudentsView, self).get_queryset()
+        return queryset.select_related('group').order_by('name')
 
 
 class AddStudentView(FormView):
     template_name = 'add_student.html'
     form_class = StudentCreateForm
-    success_url = '/'
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.save()
@@ -64,4 +76,28 @@ class AddStudentView(FormView):
 class AddCourseView(CreateView):
     template_name = 'add_course.html'
     form_class = CourseCreateForm
-    success_url = '/'
+    success_url = reverse_lazy('home')
+
+
+class EditStudentView(UpdateView):
+    template_name = 'add_student.html'
+    model = Student
+    form_class = StudentEditForm
+    success_url = reverse_lazy('student:list')
+    pk_url_kwarg = 'student_id'
+
+    def get_initial(self):
+        name = self.object.name.split()
+        return {'first_name': name[0], 'last_name': name[1]}
+
+
+class EditCourseView(UpdateView):
+    template_name = 'add_course.html'
+    model = Course
+    form_class = CourseCreateForm
+    success_url = reverse_lazy('home')
+    pk_url_kwarg = 'course_id'
+
+
+class ProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'profile.html'
