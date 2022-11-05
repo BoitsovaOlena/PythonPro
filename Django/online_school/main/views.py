@@ -3,7 +3,7 @@ from django.contrib.postgres.aggregates import ArrayAgg
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, FormView, CreateView, UpdateView
-from main.forms import CourseCreateForm, StudentCreateForm, StudentEditForm
+from main.forms import CourseCreateForm, StudentCreateForm, StudentEditForm, ContactUsForm
 from main.models import CourseCategory, Course, Student, Group
 from django.http import Http404
 from django.shortcuts import get_object_or_404
@@ -80,6 +80,11 @@ class AddCourseView(CreateView):
     form_class = CourseCreateForm
     success_url = reverse_lazy('home')
 
+    def form_valid(self, form):
+        form.save()
+        form.send_email()
+        return super(AddCourseView, self).form_valid(form)
+
 
 class EditStudentView(UpdateView):
     template_name = 'add_student.html'
@@ -103,3 +108,13 @@ class EditCourseView(UpdateView):
 
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'profile.html'
+
+
+class ContactUsView(FormView):
+    template_name = 'contact-us.html'
+    form_class = ContactUsForm
+    success_url = reverse_lazy('contact_us')
+
+    def form_valid(self, form):
+        form.send_email()
+        return super(ContactUsView, self).form_valid(form)
