@@ -156,7 +156,7 @@ CELERY_TIME_ZONE =TIME_ZONE
 CELERY_BEAT_SCHEDULE = {
     'send_courses': {
         'task': 'main.celery_tasks.new_courses_email',
-        'schedule': crontab(minute=0, hour=12)
+        'schedule': crontab(minute=50, hour=23)
     },
 }
 
