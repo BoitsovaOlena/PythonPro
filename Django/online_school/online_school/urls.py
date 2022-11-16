@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.IndexView.as_view(), name='home'),
     path("category/<int:id>/", views.CategoryView.as_view(), name='category'),
+    path("contact-us/", views.ContactUsView.as_view(), name='contact_us'),
     path("course/", include(("main.urls_course", 'main'), namespace='course')),
     path("student/", include(("main.urls_student", 'main'), namespace='student')),
     path("login/", LoginView.as_view(template_name='login.html'), name='login'),

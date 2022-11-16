@@ -63,9 +63,12 @@ class CourseTheses(NameIt):
 
 class Course(NameIt):
     description = models.TextField()
-    image = models.ImageField(upload_to=course_upload_path)
+    image = models.ImageField(upload_to=course_upload_path, null=True)
     course_theses = models.ManyToManyField("main.CourseTheses")
     teacher = models.ManyToManyField("main.Teacher", blank=True)
     category = models.ForeignKey("main.CourseCategory", on_delete=models.SET_NULL, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     objects = CourseManager()

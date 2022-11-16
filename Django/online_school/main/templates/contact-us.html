@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block main_content %}
+  <h1 class="m-3 text-center">Введіть ваш логін та пароль</h1>
+  <form method="post">{% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="mb-3 mt-3">
+      <button type="submit" class="btn btn-success">
+        Відправити
+      </button>
+    </div>
+  </form>
+{% endblock main_content %}
