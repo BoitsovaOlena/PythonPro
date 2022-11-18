@@ -4,18 +4,40 @@ services:
   project:
     build:
       dockerfile: Dockerfile
-    command: 'python manage.py runserver 0.0.0.0:8000'
+    env_file:
+      - .env
+    command: 'bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"'
     ports:
       - "8000:8000"
     volumes:
       - ./:/app
-    restart: on-failure
+    restart: always
     depends_on:
-      - mysql_db
+      mysql_db:
+        condition: service_healthy
+
+  celery:
+    build:
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    command: 'celery -A online_school worker -l info -P eventlet'
+    volumes:
+      - ./:/app
+    restart: always
+    depends_on:
+      - rabbit
+
+  rabbit:
+    image: rabbitmq
+
   mysql_db:
     image: mysql:5.7.8
-    environment:
-      - MYSQL_ROOT_PASSWORD=root_pass
-      - MYSQL_DATABASE=school
+    env_file:
+      - .env
     volumes:
       - ./data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 3s
+      retries: 100
