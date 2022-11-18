@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  project:
+    build:
+      dockerfile: Dockerfile
+    command: 'python manage.py runserver 0.0.0.0:8000'
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    restart: on-failure
+    depends_on:
+      - mysql_db
+  mysql_db:
+    image: mysql:5.7.8
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_pass
+      - MYSQL_DATABASE=school
+    volumes:
+      - ./data:/var/lib/mysql

@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-n=zkb&hwv04kw)c$)ab$p7x1g+p+07)_!7&_9-l6rl^+bu_qh4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '0.0.0.0']
 
 # Application definition
 
@@ -85,8 +84,13 @@ WSGI_APPLICATION = 'online_school.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'school',
+        'USER': 'root',
+        'PASSWORD': 'root_pass',
+        'HOST': 'mysql_db',
+        'default-character-set': 'utf8',
+        # 'PORT': '5432',
     }
 }
 
@@ -137,6 +141,7 @@ MEDIA_URL = '/media/'
 
 INTERNAL_IPS = [
     "127.0.0.1",
+    "0.0.0.0"
 ]
 
 LOGIN_REDIRECT_URL = '/profile/'
