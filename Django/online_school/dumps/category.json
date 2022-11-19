@@ -1,0 +1,23 @@
+[
+{
+    "model": "main.coursecategory",
+    "pk": 1,
+    "fields": {
+        "name": "Програмування"
+    }
+},
+{
+    "model": "main.coursecategory",
+    "pk": 2,
+    "fields": {
+        "name": "Тестування"
+    }
+},
+{
+    "model": "main.coursecategory",
+    "pk": 3,
+    "fields": {
+        "name": "Дизайн"
+    }
+}
+]
