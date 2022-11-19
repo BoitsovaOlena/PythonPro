@@ -90,7 +90,7 @@ DATABASES = {
         'USER': os.getenv('MYSQL_ROOT_USER'),
         'PASSWORD': os.getenv('MYSQL_ROOT_PASSWORD'),
         'HOST': os.getenv('MYSQL_HOST'),
-        'default-character-set': 'utf8',
+        # 'default-character-set': 'utf8',
         # 'PORT': '5432',
     }
 }
@@ -173,3 +173,7 @@ CELERY_BEAT_SCHEDULE = {
     },
 }
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
