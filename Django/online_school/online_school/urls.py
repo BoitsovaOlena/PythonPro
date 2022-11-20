@@ -30,5 +30,6 @@ urlpatterns = [
     path("login/", LoginView.as_view(template_name='login.html'), name='login'),
     path("logout/", LogoutView.as_view(), name='logout'),
     path("profile/", views.ProfileView.as_view(), name='profile'),
+    path("api/", include(("api.urls_api", 'api'), namespace='api')),
     path('__debug__/', include('debug_toolbar.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

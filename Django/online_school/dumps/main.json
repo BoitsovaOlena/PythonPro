@@ -3,7 +3,7 @@
     "model": "main.teacher",
     "pk": 1,
     "fields": {
-        "name": "Микола Котик",
+        "name": "Mikola Kotik",
         "age": 45,
         "email": "micola@micola.com",
         "group": 1
@@ -13,7 +13,7 @@
     "model": "main.teacher",
     "pk": 2,
     "fields": {
-        "name": "Оксана Тодоренко",
+        "name": "Oksana Todorenko",
         "age": 36,
         "email": "ksen@ksen.com",
         "group": 4
@@ -23,7 +23,7 @@
     "model": "main.teacher",
     "pk": 3,
     "fields": {
-        "name": "Гнат Потапенко",
+        "name": "Gnat Potapenko",
         "age": 41,
         "email": "gnat@gnat.com",
         "group": 2
@@ -33,7 +33,7 @@
     "model": "main.teacher",
     "pk": 4,
     "fields": {
-        "name": "Олександр Яворський",
+        "name": "Oleksandr Javorskii",
         "age": 29,
         "email": "javir@javir.com",
         "group": 3
@@ -43,7 +43,7 @@
     "model": "main.teacher",
     "pk": 5,
     "fields": {
-        "name": "Оксана Твит",
+        "name": "Oksana Tvit",
         "age": 31,
         "email": "oksana@jjj.com",
         "group": 5
@@ -53,7 +53,7 @@
     "model": "main.teacher",
     "pk": 6,
     "fields": {
-        "name": "Дмитро Іванов",
+        "name": "Dmitro Ivanov",
         "age": 45,
         "email": "dima@dima.com",
         "group": 6
@@ -63,7 +63,7 @@
     "model": "main.teacher",
     "pk": 7,
     "fields": {
-        "name": "Денис Оленик",
+        "name": "Denis Olenik",
         "age": 27,
         "email": "den@gmail.com",
         "group": 11
@@ -105,7 +105,7 @@
     "model": "main.group",
     "pk": 5,
     "fields": {
-        "name": "Дизайнери",
+        "name": "Designers",
         "course": 1
     }
 },
@@ -177,7 +177,7 @@
     "model": "main.student",
     "pk": 1,
     "fields": {
-        "name": "Сергій Дорошенко",
+        "name": "Sergii Doroschenko",
         "age": 19,
         "email": "serg@serg.com",
         "group": 1
@@ -187,7 +187,7 @@
     "model": "main.student",
     "pk": 2,
     "fields": {
-        "name": "Світлана Іванова",
+        "name": "Svitlana Ivanova",
         "age": 25,
         "email": "sv@sv.com",
         "group": 2
@@ -197,7 +197,7 @@
     "model": "main.student",
     "pk": 3,
     "fields": {
-        "name": "Антон Птаха",
+        "name": "Anton Ptacha",
         "age": 25,
         "email": "ant@ant.com",
         "group": 3
@@ -207,7 +207,7 @@
     "model": "main.student",
     "pk": 4,
     "fields": {
-        "name": "Ольга Орлова",
+        "name": "Olha Orlova",
         "age": 33,
         "email": "oo@oo.com",
         "group": 4
@@ -217,7 +217,7 @@
     "model": "main.student",
     "pk": 5,
     "fields": {
-        "name": "Микола Вус",
+        "name": "Mikola Vus",
         "age": 19,
         "email": "vyc@vyc.com",
         "group": 4
@@ -227,7 +227,7 @@
     "model": "main.student",
     "pk": 6,
     "fields": {
-        "name": "Генадій Потапчук",
+        "name": "Genadii Potapchuk",
         "age": 18,
         "email": "potap@potap.com",
         "group": 2
@@ -237,7 +237,7 @@
     "model": "main.student",
     "pk": 7,
     "fields": {
-        "name": "Семен Могила",
+        "name": "Semen Mogila",
         "age": 32,
         "email": "sem@sem.com",
         "group": 3
@@ -247,7 +247,7 @@
     "model": "main.student",
     "pk": 8,
     "fields": {
-        "name": "Ніна Тітова",
+        "name": "Nina Titova",
         "age": 18,
         "email": "tit@tit.com",
         "group": 4
@@ -257,7 +257,7 @@
     "model": "main.student",
     "pk": 9,
     "fields": {
-        "name": "Марія Подоленко",
+        "name": "Marija Podolenko",
         "age": 19,
         "email": "mary@mary.com",
         "group": 1
@@ -267,7 +267,7 @@
     "model": "main.student",
     "pk": 10,
     "fields": {
-        "name": "Ольга Діброва",
+        "name": "Olha Dibrova",
         "age": 27,
         "email": "ooo@dib.com",
         "group": 1
@@ -277,7 +277,7 @@
     "model": "main.student",
     "pk": 11,
     "fields": {
-        "name": "Семен Михайленкр",
+        "name": "Semen Michailenko",
         "age": 34,
         "email": "miha@miha.com",
         "group": 2
@@ -287,7 +287,7 @@
     "model": "main.student",
     "pk": 12,
     "fields": {
-        "name": "Антон Притула",
+        "name": "Anton Pritula",
         "age": 19,
         "email": "anton@ant.com",
         "group": 3
@@ -297,7 +297,7 @@
     "model": "main.student",
     "pk": 13,
     "fields": {
-        "name": "Анна Пилипчук",
+        "name": "Anna Pilipchuk",
         "age": 18,
         "email": "ann@ann.com",
         "group": 2
@@ -307,7 +307,7 @@
     "model": "main.student",
     "pk": 14,
     "fields": {
-        "name": "Василь Руденко",
+        "name": "Vasil Rudenko",
         "age": 31,
         "email": "rudenko@gmail.com",
         "group": 2
@@ -317,7 +317,7 @@
     "model": "main.student",
     "pk": 17,
     "fields": {
-        "name": "Анна GHT",
+        "name": "Anna GHT",
         "age": 19,
         "email": "dsd@gmail.com",
         "group": 1
@@ -327,7 +327,7 @@
     "model": "main.student",
     "pk": 18,
     "fields": {
-        "name": "Анна Борова",
+        "name": "Anna Borova",
         "age": 19,
         "email": "dsvsd@gmail.com",
         "group": 1
@@ -337,40 +337,10 @@
     "model": "main.student",
     "pk": 20,
     "fields": {
-        "name": "Анна Два",
+        "name": "Anna Dva",
         "age": 18,
         "email": "dsvghbhsd@gmail.com",
         "group": 1
-    }
-},
-{
-    "model": "main.student",
-    "pk": 21,
-    "fields": {
-        "name": "Анна Fyyf",
-        "age": 37,
-        "email": "fsfefesf@bhggb.com",
-        "group": 5
-    }
-},
-{
-    "model": "main.student",
-    "pk": 22,
-    "fields": {
-        "name": "Rhjbk пывсыло",
-        "age": 19,
-        "email": "dsvvvvsd@gmail.com",
-        "group": 6
-    }
-},
-{
-    "model": "main.student",
-    "pk": 23,
-    "fields": {
-        "name": "вмым выивыи",
-        "age": 45,
-        "email": "d@gmail.com",
-        "group": 9
     }
 },
 {
@@ -447,42 +417,42 @@
     "model": "main.coursecategory",
     "pk": 1,
     "fields": {
-        "name": "Програмування"
+        "name": "Programming"
     }
 },
 {
     "model": "main.coursecategory",
     "pk": 2,
     "fields": {
-        "name": "Тестування"
+        "name": "Testing"
     }
 },
 {
     "model": "main.coursecategory",
     "pk": 3,
     "fields": {
-        "name": "Дизайн"
+        "name": "Design"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 1,
     "fields": {
-        "name": "Системи керування версіями (git)"
+        "name": "Version control systems (git)"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 2,
     "fields": {
-        "name": "Вивчення HTML та CSS"
+        "name": "Learning HTML and CSS"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 3,
     "fields": {
-        "name": "Препроцесори CSS (SASS, SCSS, LESS)"
+        "name": "CSS preprocessors (SASS, SCSS, LESS)"
     }
 },
 {
@@ -496,77 +466,77 @@
     "model": "main.coursetheses",
     "pk": 5,
     "fields": {
-        "name": "Робота з SVG"
+        "name": "Working with SVG"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 6,
     "fields": {
-        "name": "Робота з REST API"
+        "name": "Working with REST APIs"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 7,
     "fields": {
-        "name": "Робота з БД (SQL)"
+        "name": "Working with databases (SQL)"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 8,
     "fields": {
-        "name": "ООП"
+        "name": "OOP"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 9,
     "fields": {
-        "name": "Вивчення JavaScript"
+        "name": "Learning JavaScript"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 10,
     "fields": {
-        "name": "Основи HTML, CSS, JS"
+        "name": "Basics of HTML, CSS, JS"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 11,
     "fields": {
-        "name": "Вивчення TypeScript"
+        "name": "Learning TypeScript"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 12,
     "fields": {
-        "name": "JS бібліотеки та фреймворки"
+        "name": "JS libraries and frameworks"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 13,
     "fields": {
-        "name": "Типи даних"
+        "name": "Data types"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 14,
     "fields": {
-        "name": "Функції та класи"
+        "name": "Functions and classes"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 15,
     "fields": {
-        "name": "Цикли"
+        "name": "Cycles"
     }
 },
 {
@@ -580,77 +550,77 @@
     "model": "main.coursetheses",
     "pk": 17,
     "fields": {
-        "name": "Робота з запитами"
+        "name": "Work with requests"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 18,
     "fields": {
-        "name": "Основи синтаксису мови"
+        "name": "Fundamentals of language syntax"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 19,
     "fields": {
-        "name": "Види тестування і проектної документації"
+        "name": "Types of testing and project documentation"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 20,
     "fields": {
-        "name": "Основним етапам забезпечення якості"
+        "name": "The main stages of quality assurance"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 21,
     "fields": {
-        "name": "Баг-трекінгові системи"
+        "name": "Bug-tracking systems"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 22,
     "fields": {
-        "name": "Tестування Web сервіси і API"
+        "name": "Web services and API testing"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 23,
     "fields": {
-        "name": "Синтаксис мови програмування Java"
+        "name": "The syntax of the Java programming language"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 24,
     "fields": {
-        "name": "Юніт, інтеграційні та системні тести"
+        "name": "Unit, integration and system tests"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 25,
     "fields": {
-        "name": "Шаблони проектування, які зустрічаються в автоматизації"
+        "name": "Design patterns found in automation"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 26,
     "fields": {
-        "name": "Синтаксис і базові інструменти мови програмування Python"
+        "name": "Syntax and basic tools of the Python programming language"
     }
 },
 {
     "model": "main.coursetheses",
     "pk": 27,
     "fields": {
-        "name": "Типографія та основи теорії кольору"
+        "name": "Typography and basics of color theory"
     }
 },
 {
@@ -685,12 +655,12 @@
     "model": "main.course",
     "pk": 1,
     "fields": {
-        "name": "Дизайн",
-        "description": "курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "name": "Design",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/1/1459372.jpg",
         "category": 3,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:04:27.935Z",
         "course_theses": [
             27,
             28,
@@ -708,11 +678,11 @@
     "pk": 2,
     "fields": {
         "name": "Front-end Basic",
-        "description": "Front-endBasic. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course.There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/2/1562688808.png",
         "category": 1,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:04:19.725Z",
         "course_theses": [
             2,
             3,
@@ -730,11 +700,11 @@
     "pk": 3,
     "fields": {
         "name": "Front-end Pro",
-        "description": "Front-end Pro. Front-end Proу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course.There should be a description of the course.There should be a description of the course. There should be a description of the course.",
         "image": "course/3/0.jpg",
         "category": 1,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:03:54.854Z",
         "course_theses": [
             1,
             5,
@@ -755,11 +725,11 @@
     "pk": 4,
     "fields": {
         "name": "QA Manual 1",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/4/_42256-1447.jpg",
         "category": 2,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:03:44.364Z",
         "course_theses": [
             10,
             19,
@@ -777,11 +747,11 @@
     "pk": 5,
     "fields": {
         "name": "QA Automation",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course.",
         "image": "course/5/1524833802_problem-3303396_960_720.png",
         "category": 2,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:03:35.473Z",
         "course_theses": [
             3,
             23,
@@ -797,12 +767,12 @@
     "model": "main.course",
     "pk": 6,
     "fields": {
-        "name": "QA Automation — Python",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "name": "QA Automation Python",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/6/1524833802_problem-3303396_960_720.png",
         "category": 2,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:03:26.097Z",
         "course_theses": [
             24,
             25,
@@ -818,11 +788,11 @@
     "pk": 7,
     "fields": {
         "name": "Fullstack",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course.There should be a description of the course.There should be a description of the course.There should be a description of the course.There should be a description of the course.There should be a description of the course. There should be a description of the course.There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/7/2f9dc9b0.jfif",
         "category": 1,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:03:01.197Z",
         "course_theses": [
             1,
             6,
@@ -845,11 +815,11 @@
     "pk": 8,
     "fields": {
         "name": "Java",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course.There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/8/3.png",
         "category": 1,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:02:36.281Z",
         "course_theses": [
             1,
             6,
@@ -872,11 +842,11 @@
     "pk": 9,
     "fields": {
         "name": "C",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/9/brown-dry-soil-background.jpg",
         "category": 1,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:02:18.361Z",
         "course_theses": [
             1,
             6,
@@ -896,11 +866,11 @@
     "pk": 10,
     "fields": {
         "name": "Python",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course.There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/10/fone_4.png",
         "category": 1,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:01:59.434Z",
         "course_theses": [
             1,
             7,
@@ -923,11 +893,11 @@
     "pk": 11,
     "fields": {
         "name": "PHP",
-        "description": "Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу. Тут має бути опис курсу.  Тут має бути опис курсу.  Тут має бути опис курсу.",
+        "description": "There should be a description of the course. There should be a description of the course. There should be a description of the course.",
         "image": "course/11/depositphotos.jpg",
         "category": 1,
         "created_at": "2022-11-05T19:43:41.550Z",
-        "updated_at": "2022-11-05T19:43:41.561Z",
+        "updated_at": "2022-11-20T12:01:37.910Z",
         "course_theses": [
             1,
             7,
@@ -1027,42 +997,6 @@
         "category": 1,
         "created_at": "2022-11-05T22:31:41.365Z",
         "updated_at": "2022-11-05T22:31:41.365Z",
-        "course_theses": [
-            1
-        ],
-        "teacher": [
-            1
-        ]
-    }
-},
-{
-    "model": "main.course",
-    "pk": 48,
-    "fields": {
-        "name": "UJTP",
-        "description": "VKFFQQVTNPKSMIIDJNUV",
-        "image": "",
-        "category": 1,
-        "created_at": "2022-11-05T22:32:14.234Z",
-        "updated_at": "2022-11-05T22:32:14.235Z",
-        "course_theses": [
-            1
-        ],
-        "teacher": [
-            1
-        ]
-    }
-},
-{
-    "model": "main.course",
-    "pk": 49,
-    "fields": {
-        "name": "DUAM",
-        "description": "IYEBCOKGCORICHGKZICM",
-        "image": "",
-        "category": 1,
-        "created_at": "2022-11-05T22:32:14.249Z",
-        "updated_at": "2022-11-05T22:32:14.249Z",
         "course_theses": [
             1
         ],

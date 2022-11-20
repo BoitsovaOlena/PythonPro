@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
+    'api',
 
     "debug_toolbar",
     "bootstrap4",
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -171,6 +174,21 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'main.celery_tasks.new_courses_email',
         'schedule': crontab(minute=50, hour=23)
     },
+    'add_token': {
+        'task': 'api.celery_tasks.add_token',
+        'schedule': crontab(minute=0, hour=0)
+    },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
 
 try:
