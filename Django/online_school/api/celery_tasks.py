@@ -6,5 +6,8 @@ from rest_framework.authtoken.models import Token
 @app.task
 def add_token():
     for user in get_user_model().objects.all():
-        Token.objects.get_or_create(user=user)
+        tokens = Token.objects.filter(user=user)
+        if len(tokens) > 0:
+            tokens[0].delete()
+        Token.objects.create(user=user)
 

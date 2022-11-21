@@ -22,6 +22,7 @@ class IndexView(ListView):
         )
 
     def get_context_data(self, *args, **kwargs):
+        add_token()
         context = super(IndexView, self).get_context_data(*args, **kwargs)
         return context
 
