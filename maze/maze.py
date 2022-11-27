@@ -66,10 +66,10 @@ class IsListOfLists:
 
 
 class Maze:
-    _matrix = IsListOfLists()
+    matrix = IsListOfLists()
     enter = IsPoint()
     exit = IsPoint()
-    _vizited_list = IsListOfLists()
+    vizited_list = IsListOfLists()
 
     def __init__(self, matrix, enter):
         self.matrix = matrix

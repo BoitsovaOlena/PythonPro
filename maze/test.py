@@ -122,3 +122,4 @@ class MazeTestCase(TestCase):
         game.find_exit()
         value = game.exit
         self.assertNotEqual(expected_value, value)
+        
