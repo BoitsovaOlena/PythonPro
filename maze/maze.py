@@ -113,46 +113,27 @@ class Maze:
             is_visited_rigth = self.vizited([start_row, index + start_col + 1])
             is_visited_left = self.vizited([start_row, index + start_col - 1])
             is_visited_up = self.vizited([start_row - 1, index + start_col])
-            is_visited_down = self.vizited([start_row + 1, index + start_col])
 
             if row_up and row_up[index + start_col] == '.':
                 if is_visited_up and row[index + start_col + 1] == '.' and is_visited_rigth is False:
                     index += 1
                     continue
                 if is_visited_up and row[index + start_col - 1] == '.' and is_visited_left is False:
-                    self.go_left(start_row, index + start_col - 1)
-                    return
-                if is_visited_up and row_down and row_down[index + start_col] == '.' and is_visited_down is False:
-                    self.go_right(start_row + 1, index + start_col)
+                    self.go_left(start_row, index + start_col)
                     return
                 self.go_right(start_row - 1, index + start_col)
                 return
             elif row[index + start_col + 1] == '.':
-                if is_visited_rigth and row_down and row_down[index + start_col] == '.' and is_visited_down is False:
-                    self.go_right(start_row + 1, index + start_col)
-                    return
                 if is_visited_rigth and row[index + start_col - 1] == '.' and is_visited_left is False:
                     self.go_left(start_row, index + start_col - 1)
                     return
-                if is_visited_rigth and row_down and row_down[index + start_col] == '.' and is_visited_down is False:
-                    self.go_right(start_row + 1, index + start_col)
+                if is_visited_rigth and row_up and row_up[index + start_col] == '.' and is_visited_up is False:
+                    self.go_right(start_row - 1, index + start_col)
                     return
                 index += 1
                 continue
-            elif row_down and row_down[index + start_col] == '.':
-                if is_visited_down and row[index + start_col - 1] == '.' and is_visited_left is False:
-                    self.go_left(start_row, index + start_col - 1, 'up')
-                    return
-                if is_visited_down and row_up and row_up[index + start_col] == '.' and is_visited_up is False:
-                    self.go_right(start_row - 1, index + start_col)
-                    return
-                if is_visited_down and row[index + start_col + 1] == '.' and is_visited_rigth is False:
-                    index += 1
-                    continue
-                self.go_right(start_row + 1, index + start_col)
-                return
             else:
-                self.go_left(start_row, index + start_col - 1)
+                self.go_left(start_row, index + start_col)
                 return
 
     def go_left(self, start_row, start_col):
@@ -179,27 +160,20 @@ class Maze:
                 return
             is_visited_rigth = self.vizited([start_row, index + 1])
             is_visited_left = self.vizited([start_row, index - 1])
-            is_visited_up = self.vizited([start_row - 1, index])
             is_visited_down = self.vizited([start_row + 1, index])
 
             if row_down and row_down[index] == '.':
                 if is_visited_down and row[index - 1] == '.' and is_visited_left is False:
                     index -= 1
                     continue
-                if is_visited_down and row_up and row_up[index] == '.' and is_visited_up is False:
-                    self.go_left(start_row - 1, index)
-                    return
                 if is_visited_down and row[index + 1] == '.' and is_visited_rigth is False:
-                    self.go_right(start_row, index + 1)
+                    self.go_right(start_row, index)
                     return
                 self.go_left(start_row + 1, index)
                 return
             elif row[index - 1] == '.':
-                if is_visited_left and row_up and row_up[index] == '.' and is_visited_up is False:
-                    self.go_left(start_row - 1, index)
-                    return
                 if is_visited_left and row[index + 1] == '.' and is_visited_rigth is False:
-                    self.go_right(start_row, index + 1)
+                    self.go_right(start_row, index)
                     return
                 if is_visited_left and row_down and row_down[index] == '.' and is_visited_down is False:
                     print('if 4 3')
@@ -207,20 +181,8 @@ class Maze:
                     return
                 index -= 1
                 continue
-            elif row_up and row_up[index] == '.':
-                if is_visited_up and row[index + 1] == '.' and is_visited_rigth is False:
-                    self.go_right(start_row, index + 1)
-                    return
-                if is_visited_up and row_down and row_down[index] == '.' and is_visited_down is False:
-                    self.go_left(start_row + 1, index)
-                    return
-                if is_visited_up and row[index - 1] == '.' and is_visited_left is False:
-                    index -= 1
-                    continue
-                self.go_left(start_row - 1, index)
-                return
             else:
-                self.go_right(start_row, index + 1)
+                self.go_right(start_row, index)
                 return
 
     def find_exit(self):
