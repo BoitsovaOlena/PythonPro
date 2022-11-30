@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
 
@@ -27,8 +28,7 @@ SECRET_KEY = 'django-insecure-n=zkb&hwv04kw)c$)ab$p7x1g+p+07)_!7&_9-l6rl^+bu_qh4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '0.0.0.0']
 
 # Application definition
 
@@ -85,8 +85,13 @@ WSGI_APPLICATION = 'online_school.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('MYSQL_DATABASE'),
+        'USER': os.getenv('MYSQL_ROOT_USER'),
+        'PASSWORD': os.getenv('MYSQL_ROOT_PASSWORD'),
+        'HOST': os.getenv('MYSQL_HOST'),
+        'default-character-set': 'utf8',
+        # 'PORT': '5432',
     }
 }
 
@@ -137,7 +142,14 @@ MEDIA_URL = '/media/'
 
 INTERNAL_IPS = [
     "127.0.0.1",
+    "0.0.0.0"
 ]
+
+import socket
+
+# tricks to have debug toolbar when developing with docker
+ip = socket.gethostbyname(socket.gethostname())
+INTERNAL_IPS += [ip[:-1] + '1']
 
 LOGIN_REDIRECT_URL = '/profile/'
 LOGOUT_REDIRECT_URL = '/'
@@ -150,6 +162,7 @@ ADMIN_EMAILS = [
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CELERY_TIME_ZONE =TIME_ZONE
+CELERY_BROKER_URL = 'amqp://rabbit'
 
 # beat_schedule
 
