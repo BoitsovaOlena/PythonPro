@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
+    'api',
 
     "debug_toolbar",
     "bootstrap4",
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -90,7 +93,7 @@ DATABASES = {
         'USER': os.getenv('MYSQL_ROOT_USER'),
         'PASSWORD': os.getenv('MYSQL_ROOT_PASSWORD'),
         'HOST': os.getenv('MYSQL_HOST'),
-        'default-character-set': 'utf8',
+        # 'default-character-set': 'utf8',
         # 'PORT': '5432',
     }
 }
@@ -171,5 +174,24 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'main.celery_tasks.new_courses_email',
         'schedule': crontab(minute=50, hour=23)
     },
+    'add_token': {
+        'task': 'api.celery_tasks.add_token',
+        'schedule': crontab(minute=0, hour=0)
+    },
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

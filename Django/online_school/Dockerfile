@@ -1,7 +1,7 @@
 FROM python:3.8
 
 ENV PYTHONUNBUFFERED=1
-
+ENV LANG=C.UTF-8
 # створюємо та відкриваємо директорію для нашого проєкту
 RUN mkdir /app
 WORKDIR /app
