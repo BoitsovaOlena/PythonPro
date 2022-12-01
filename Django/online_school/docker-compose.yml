@@ -43,3 +43,11 @@ services:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       timeout: 3s
       retries: 100
+
+  memcached:
+    image: memcached
+    entrypoint:
+      - memcached
+      - -m 64
+    ports:
+      - "11211:11211"
