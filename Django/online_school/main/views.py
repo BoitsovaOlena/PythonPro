@@ -1,3 +1,5 @@
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.postgres.aggregates import ArrayAgg
 from django.shortcuts import render, redirect
@@ -10,6 +12,7 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Count, F
 
 
+@method_decorator(cache_page(60*15, key_prefix="index"), 'get')
 class IndexView(ListView):
     template_name = 'index.html'
     model = Course
@@ -22,8 +25,11 @@ class IndexView(ListView):
         )
 
     def get_context_data(self, *args, **kwargs):
-        add_token()
         context = super(IndexView, self).get_context_data(*args, **kwargs)
+        # if 'refresh_count' not in self.request.session:
+        #     self.request.session['refresh_count'] = 0
+        # self.request.session['refresh_count'] += 1
+        # context['refresh_count'] =  self.request.session['refresh_count']
         return context
 
 
@@ -107,10 +113,12 @@ class EditCourseView(UpdateView):
     pk_url_kwarg = 'course_id'
 
 
+@method_decorator(cache_page(60*30, key_prefix="profile"), 'get')
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'profile.html'
 
 
+@method_decorator(cache_page(60*90, key_prefix="contact_us"), 'get')
 class ContactUsView(FormView):
     template_name = 'contact-us.html'
     form_class = ContactUsForm
