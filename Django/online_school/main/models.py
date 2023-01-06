@@ -2,7 +2,6 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-
 def validate_age(value):
     if value < 18 or value > 90:
         raise ValidationError(
@@ -72,3 +71,23 @@ class Course(NameIt):
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = CourseManager()
+
+
+# курс валют
+class Bank(NameIt):
+    pass
+
+
+class Сurrency(NameIt):
+    pass
+
+
+class ExchangeRate(models.Model):
+    bank = models.ForeignKey("main.Bank", on_delete=models.SET_NULL, null=True)
+    currency = models.ForeignKey("main.Сurrency", on_delete=models.SET_NULL, null=True)
+    buying = models.CharField(max_length=50)
+    selling = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    set_course = models.CharField(max_length=255, unique=True)
+
