@@ -1,8 +1,6 @@
 import requests
 from datetime import datetime
 from lxml import etree
-from pprint import pprint
-from main.models import ExchangeRate
 
 
 def check_request(url, content_type):
@@ -26,36 +24,108 @@ def check_request(url, content_type):
                 return resp
         return None
 
+def make_dict(bank, currency, buying, selling, date):
+    """
+    :return:
+    :rtype:dict
+    """
+    set_course = bank + currency + date
+    return {
+        "bank": bank,
+        "currency": currency,
+        "buying": buying,
+        "selling": selling,
+        "set_course": set_course
+    }
 
-if __name__ == '__main__':
+
+def parse_exchange():
+    """
+    Receives information on exchange rates from 5 sources.
+    :return: List of dictionaries with exchange rates.
+    :rtype: List
+    """
+    rates = []
     my_date = datetime.today()
 
-    # MONO_URL = 'https://api.monobank.ua/bank/currency'
-    # mono_response = check_request(MONO_URL, 'application/json; charset=utf-8')
-    # pprint(mono_response.json())
+    MONO_URL = 'https://api.monobank.ua/bank/currency'
+    mono_response = check_request(MONO_URL, 'application/json; charset=utf-8')
+    for item in mono_response.json()[0:9]:
+        currencies = {
+            '840': 'USD',
+            '978': 'EUR',
+            '826': 'GBP',
+            '392': 'JPY',
+            '756': 'CHF',
+            '156': 'CNY',
+            '784': 'AED',
+            '971': 'AFN'
+        }
+        if item['currencyCodeB'] == 980:
+            record = make_dict(
+                bank='monobank',
+                currency=currencies[str(item['currencyCodeA'])],
+                buying=str(item['rateBuy']),
+                selling=str(item['rateSell']),
+                date=my_date.strftime("%d.%m.%Y")
+            )
+            rates.append(record)
 
-    # PRIVAT_URL = 'https://api.privatbank.ua/p24api/exchange_rates?json&date={}'
-    # privat_response = check_request(PRIVAT_URL.format(my_date.strftime("%d.%m.%Y")), 'application/json;charset=UTF-8')
-    # print(privat_response.json())
+    PRIVAT_URL = 'https://api.privatbank.ua/p24api/exchange_rates?json&date={}'
+    privat_response = check_request(PRIVAT_URL.format(my_date.strftime("%d.%m.%Y")), 'application/json;charset=UTF-8')
+    for item in privat_response.json()['exchangeRate']:
+        if item.get('purchaseRate') and item.get('saleRate'):
+            record = make_dict(
+                bank='privatbank',
+                currency=item['currency'],
+                buying=item['purchaseRate'],
+                selling=item['saleRate'],
+                date=my_date.strftime("%d.%m.%Y")
+            )
+            rates.append(record)
 
-    # VCURSE_URL = 'https://vkurse.dp.ua/course.json'
-    # vkurse_response = check_request(VCURSE_URL, 'application/json')
-    # print(vkurse_response.json())
-    v = ExchangeRate(buying='44.3', selling = '45.4', set_course='sdvmdsjvmsjmv')
-    print(v.id)
-    #
-    # PIRAEUS_URL = 'https://piraeusbank.ua/ua/get-exchange-nbu'
-    # piraeus_response = check_request(PIRAEUS_URL, 'application/json')
-    # pprint(piraeus_response.json())
-    #
-    # OSCHAD_URL = 'https://www.oschadbank.ua/currency-rate'
-    # oschad_response = check_request(OSCHAD_URL, 'text/html; charset=utf-8')
-    # oschad_html = etree.HTML(oschad_response.text)
-    # for item in oschad_html.cssselect('tbody .heading-block-currency-rate__table-row'):
-    #     currency = item.cssselect('span')[1].text
-    #     print('1,==', currency)
-    #     buy = item.cssselect('span')[3].text
-    #     print('2,==', buy)
-    #     sell = item.cssselect('span')[4].text
-    #     print('3,==', sell)
-    #
+    VCURSE_URL = 'https://vkurse.dp.ua/course.json'
+    vkurse_response = check_request(VCURSE_URL, 'application/json')
+    for currency, rate in vkurse_response.json().items():
+        currencies = {
+            'Dollar': 'USD',
+            'Euro': 'EUR',
+            'Pln': 'PLN'
+        }
+        record = make_dict(
+            bank='vkurse',
+            currency=currencies[currency],
+            buying=rate['buy'],
+            selling=rate['sale'],
+            date=my_date.strftime("%d.%m.%Y")
+        )
+        rates.append(record)
+
+    PIRAEUS_URL = 'https://piraeusbank.ua/ua/get-exchange-nbu'
+    piraeus_response = check_request(PIRAEUS_URL, 'application/json')
+    for item in piraeus_response.json()['rates']:
+        record = make_dict(
+            bank='piraeusbank',
+            currency=item['targetCurrency'],
+            buying=item['buying'],
+            selling=item['selling'],
+            date=my_date.strftime("%d.%m.%Y")
+        )
+        rates.append(record)
+
+    OSCHAD_URL = 'https://www.oschadbank.ua/currency-rate'
+    oschad_response = check_request(OSCHAD_URL, 'text/html; charset=utf-8')
+    oschad_html = etree.HTML(oschad_response.text)
+    for item in oschad_html.cssselect('tbody .heading-block-currency-rate__table-row')[0:7]:
+        currency = item.cssselect('span')[1].text
+        buy = item.cssselect('span')[3].text
+        sell = item.cssselect('span')[4].text
+        record = make_dict(
+            bank='oschadbank',
+            currency=currency,
+            buying=buy,
+            selling=sell,
+            date=my_date.strftime("%d.%m.%Y")
+        )
+        rates.append(record)
+    return rates
