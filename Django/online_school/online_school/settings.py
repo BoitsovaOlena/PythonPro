@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "bootstrap4",
     'rest_framework',
-    'rest_framework.authtoken',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [

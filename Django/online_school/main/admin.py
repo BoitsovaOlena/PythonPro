@@ -9,4 +9,8 @@ admin.site.register(models.CourseCategory)
 admin.site.register(models.CourseTheses)
 admin.site.register(models.Course)
 
+admin.site.register(models.Bank)
+admin.site.register(models.Сurrency)
+admin.site.register(models.ExchangeRate)
+
 
