@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 from lxml import etree
 from pprint import pprint
-from Django.online_school.main.models import ExchangeRate
+from main.models import ExchangeRate
 
 
 def check_request(url, content_type):
